@@ -19,14 +19,19 @@ Data geospasial yang dimuat dalam aplikasi ini termasuk dalam format .shp dan di
 
 ## Fitur dalam Sistem
 - Legenda
+
   Menampilkan *layer-layer* yang ingin dilihat pengguna berupa batas administratif Provinsi Lampung, Kecamatan, dan Kota; Garis Sungai, Area Danau, Garis Jalan, Area Pemukiman, dan Titik Pemerintahan.
 - Pencarian Lokasi
+
   Fitur pencarian lokasi yang memungkinkan pengguna untuk mencari lokasi tertentu di Provinsi Lampung berdasarkan *layer* atau alamat yang dimasukkan.
 - *Pop up* Informasi
+
   Ketika pengguna mengklik suatu fitur, akan muncul *pop up* yang berisi informasi terkait fitur tersebut.
 - Tombol Reset Zoom
-  Tombol yang memungkinkan pengguna untuk mengembalikan zoom dan posisi peta ke kondisi semula setelah melakukan zoom atau pergeseran.
+
+  Tombol yang memungkinkan pengguna untuk mengembalikan zoom dan posisi peta ke kondisi semula setelah melakukan *zoom* atau pergeseran.
 - Fitur Pengukuran
+
   Memungkinkan pengguna untuk mengukur panjang jarak suatu titik dalam (km) atau luas suatu area dalam (m2)
 
 ## Penggunaan
