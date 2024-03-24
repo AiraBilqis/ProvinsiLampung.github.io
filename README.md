@@ -11,7 +11,7 @@ Variabel spasial yang digunakan dalam aplikasi ini mencakup:
 - Klasifikasi geografis (seperti batas administratif, sungai, jalan, dan pemukiman) yang digunakan untuk memetakan objek di peta.
 
 ## Data Geospasial
-Data geospasial yang dimuat dalam aplikasi ini termasuk dalam format GeoJSON dan digunakan untuk membangun lapisan-lapisan peta yang ditampilkan kepada pengguna.
+Data geospasial yang dimuat dalam aplikasi ini termasuk dalam format SHP dan digunakan untuk membangun lapisan-lapisan peta yang ditampilkan kepada pengguna.
 
 ## Gambar Pemodelan Sistem
 - Use Case: Belum diimplementasikan.
