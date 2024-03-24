@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="./resources/ol.css">
+        <link rel="stylesheet" href="resources/fontawesome-all.min.css">
+        <link rel="stylesheet" type="text/css" href="resources/horsey.min.css">
+        <link rel="stylesheet" type="text/css" href="resources/ol3-search-layer.min.css">
+        <link rel="stylesheet" href="./resources/ol-layerswitcher.css">
+        <link rel="stylesheet" href="./resources/qgis2web.css">
+        <style>
+        .ol-geocoder.gcd-gl-container {
+            top: 135px!important;
+            left: 8px!important;
+        }
+        .ol-touch .ol-geocoder.gcd-gl-container{
+            top: 180px!important;
+        }
+        .ol-geocoder .gcd-gl-btn:after{
+            display:none;
+        }
+        </style>
+<style>
+.search-layer {
+  top: 170px;
+  left: .5em;
+}
+.ol-touch .search-layer {
+  top: 230px;
+}
+</style>
+        <style>
+        html, body {
+            background-color: #ffffff;
+        }
+        .ol-control button {
+            background-color: #1f78b4 !important;
+            color: #fafafa !important;
+            border-radius: 0px !important;
+        }
+        .ol-zoom, .geolocate, .gcd-gl-control .ol-control {
+            background-color: rgba(255,255,255,.4) !important;
+            padding: 3px !important;
+        }
+        .ol-scale-line {
+            background: none !important;
+        }
+        .ol-scale-line-inner {
+            border: 2px solid #1f78b4 !important;
+            border-top: none !important;
+            background: rgba(255, 255, 255, 0.5) !important;
+            color: black !important;
+        }
+        </style>
+
+        <style>
+        .geolocate {
+            top: 65px;
+            left: .5em;
+        }
+        .ol-touch .geolocate {
+            top: 80px;
+        }
+        </style>
+        <link href="resources/ol-geocoder.min.css" rel="stylesheet">
+<style>
+.tooltip {
+  position: relative;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  color: white;
+  padding: 4px 8px;
+  opacity: 0.7;
+  white-space: nowrap;
+}
+.tooltip-measure {
+  opacity: 1;
+  font-weight: bold;
+}
+.tooltip-static {
+  background-color: #ffcc33;
+  color: black;
+  border: 1px solid white;
+}
+.tooltip-measure:before,
+.tooltip-static:before {
+  border-top: 6px solid rgba(0, 0, 0, 0.5);
+  border-right: 6px solid transparent;
+  border-left: 6px solid transparent;
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  margin-left: -7px;
+  left: 50%;
+}
+.tooltip-static:before {
+  border-top-color: #ffcc33;
+}
+.measure-control {
+  top: 100px;
+  left: .5em;
+  display: flex;
+}
+.ol-touch .measure-control {
+  top: 130px;
+}
+.measure-control label {
+  padding: 1px;
+  padding-right: 4px;
+}
+
+.title-box {
+    border: 1px solid black; /* Garis untuk kotak */
+    padding: 10px; /* Ruang di dalam kotak */
+    width: max-content; /* Lebar kotak mengikuti konten */
+}
+
+h1 {
+    margin: 0; /* Menghapus margin bawaan dari h1 */
+    font-size: 24px;
+}
+
+span.additional-text {
+    display: block; /* Membuat teks tambahan menempati baris baru */
+    font-size: 14px;
+    color: gray;
+}
+</style>
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title>Web GIS Provinsi Lampung</title>
+    </head>
+    <body>
+        <div id="map">
+            <div id="popup" class="ol-popup">
+                <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+                <div id="popup-content"></div>
+            </div>
+        </div>
+        <script src="resources/qgis2web_expressions.js"></script>
+<script src="resources/proj4.js"></script>
+        <script>proj4.defs('EPSG:4326','+proj=longlat +datum=WGS84 +no_defs');</script>
+        <script src="resources/polyfills.js"></script>
+        <script src="./resources/functions.js"></script>
+        <script src="./resources/ol.js"></script>
+        <script src="http://cdn.polyfill.io/v2/polyfill.min.js?features=Element.prototype.classList,URL"></script>
+        <script src="resources/horsey.min.js"></script>
+        <script src="resources/ol3-search-layer.js"></script>
+        <script src="./resources/ol-layerswitcher.js"></script>
+        <script src="resources/ol-geocoder.js"></script>
+        <script src="layers/BATAS_DESA_DESEMBER_2019_DUKCAPIL_LAMPUNG_1.js"></script><script src="layers/Kecamatan_2.js"></script><script src="layers/kota_3.js"></script><script src="layers/SUNGAI_LN_50K_4.js"></script><script src="layers/JALAN_LN_50K_5.js"></script><script src="layers/PEMUKIMAN_AR_50K_6.js"></script><script src="layers/PEMERINTAHAN_PT_50K_7.js"></script><script src="layers/SUNGAI_LN_50K_8.js"></script><script src="layers/JALAN_LN_50K_9.js"></script><script src="layers/PEMUKIMAN_AR_50K_10.js"></script><script src="layers/PEMERINTAHAN_PT_50K_11.js"></script><script src="layers/DANAU_AR_50K_12.js"></script><script src="layers/SUNGAI_LN_50K_13.js"></script><script src="layers/JALAN_LN_50K_14.js"></script><script src="layers/PEMUKIMAN_AR_50K_15.js"></script><script src="layers/PEMERINTAHAN_PT_50K_16.js"></script><script src="layers/DANAU_AR_50K_17.js"></script><script src="layers/SUNGAI_LN_50K_18.js"></script><script src="layers/JALAN_LN_50K_19.js"></script><script src="layers/PEMUKIMAN_AR_50K_20.js"></script><script src="layers/PEMERINTAHAN_PT_50K_21.js"></script><script src="layers/DANAU_AR_50K_22.js"></script><script src="layers/SUNGAI_LN_50K_23.js"></script><script src="layers/JALAN_LN_50K_24.js"></script><script src="layers/PEMUKIMAN_AR_50K_25.js"></script><script src="layers/PEMERINTAHAN_PT_50K_26.js"></script><script src="layers/DANAU_AR_50K_27.js"></script><script src="layers/SUNGAI_LN_50K_28.js"></script><script src="layers/JALAN_LN_50K_29.js"></script><script src="layers/PEMUKIMAN_AR_50K_30.js"></script><script src="layers/PEMERINTAHAN_PT_50K_31.js"></script><script src="layers/DANAU_AR_50K_32.js"></script><script src="layers/SUNGAI_LN_50K_33.js"></script><script src="layers/JALAN_LN_50K_34.js"></script><script src="layers/PEMUKIMAN_AR_50K_35.js"></script><script src="layers/PEMERINTAHAN_PT_50K_36.js"></script><script src="layers/DANAU_AR_50K_37.js"></script><script src="layers/SUNGAI_LN_50K_38.js"></script><script src="layers/JALAN_LN_50K_39.js"></script><script src="layers/PEMUKIMAN_AR_50K_40.js"></script><script src="layers/PEMERINTAHAN_PT_50K_41.js"></script><script src="layers/SUNGAI_LN_50K_42.js"></script><script src="layers/JALAN_LN_50K_43.js"></script><script src="layers/PEMUKIMAN_AR_50K_44.js"></script><script src="layers/PEMERINTAHAN_PT_50K_45.js"></script><script src="layers/DANAU_AR_50K_46.js"></script><script src="layers/SUNGAI_LN_50K_47.js"></script><script src="layers/JALAN_LN_50K_48.js"></script><script src="layers/PEMUKIMAN_AR_50K_49.js"></script><script src="layers/PEMERINTAHAN_PT_50K_50.js"></script><script src="layers/DANAU_AR_50K_51.js"></script><script src="layers/SUNGAI_LN_50K_52.js"></script><script src="layers/JALAN_LN_50K_53.js"></script><script src="layers/PEMUKIMAN_AR_50K_54.js"></script><script src="layers/PEMERINTAHAN_PT_50K_55.js"></script><script src="layers/DANAU_AR_50K_56.js"></script><script src="layers/SUNGAI_LN_50K_57.js"></script><script src="layers/JALAN_LN_50K_58.js"></script><script src="layers/PEMUKIMAN_AR_50K_59.js"></script><script src="layers/PEMERINTAHAN_PT_50K_60.js"></script><script src="layers/DANAU_AR_50K_61.js"></script><script src="layers/SUNGAI_LN_50K_62.js"></script><script src="layers/JALAN_LN_50K_63.js"></script><script src="layers/PEMUKIMAN_AR_50K_64.js"></script><script src="layers/PEMERINTAHAN_PT_50K_65.js"></script><script src="layers/DANAU_AR_50K_66.js"></script><script src="layers/SUNGAI_LN_50K_67.js"></script><script src="layers/JALAN_LN_50K_68.js"></script><script src="layers/PEMUKIMAN_AR_50K_69.js"></script><script src="layers/PEMERINTAHAN_PT_50K_70.js"></script><script src="layers/DANAU_AR_50K_71.js"></script><script src="layers/SUNGAI_LN_50K_72.js"></script><script src="layers/JALAN_LN_50K_73.js"></script><script src="layers/Pemukiman_74.js"></script><script src="layers/PEMERINTAHAN_PT_50K_75.js"></script>
+        <script src="styles/BATAS_DESA_DESEMBER_2019_DUKCAPIL_LAMPUNG_1_style.js"></script><script src="styles/Kecamatan_2_style.js"></script><script src="styles/kota_3_style.js"></script><script src="styles/SUNGAI_LN_50K_4_style.js"></script><script src="styles/JALAN_LN_50K_5_style.js"></script><script src="styles/PEMUKIMAN_AR_50K_6_style.js"></script><script src="styles/PEMERINTAHAN_PT_50K_7_style.js"></script><script src="styles/SUNGAI_LN_50K_8_style.js"></script><script src="styles/JALAN_LN_50K_9_style.js"></script><script src="styles/PEMUKIMAN_AR_50K_10_style.js"></script><script src="styles/PEMERINTAHAN_PT_50K_11_style.js"></script><script src="styles/DANAU_AR_50K_12_style.js"></script><script src="styles/SUNGAI_LN_50K_13_style.js"></script><script src="styles/JALAN_LN_50K_14_style.js"></script><script src="styles/PEMUKIMAN_AR_50K_15_style.js"></script><script src="styles/PEMERINTAHAN_PT_50K_16_style.js"></script><script src="styles/DANAU_AR_50K_17_style.js"></script><script src="styles/SUNGAI_LN_50K_18_style.js"></script><script src="styles/JALAN_LN_50K_19_style.js"></script><script src="styles/PEMUKIMAN_AR_50K_20_style.js"></script><script src="styles/PEMERINTAHAN_PT_50K_21_style.js"></script><script src="styles/DANAU_AR_50K_22_style.js"></script><script src="styles/SUNGAI_LN_50K_23_style.js"></script><script src="styles/JALAN_LN_50K_24_style.js"></script><script src="styles/PEMUKIMAN_AR_50K_25_style.js"></script><script src="styles/PEMERINTAHAN_PT_50K_26_style.js"></script><script src="styles/DANAU_AR_50K_27_style.js"></script><script src="styles/SUNGAI_LN_50K_28_style.js"></script><script src="styles/JALAN_LN_50K_29_style.js"></script><script src="styles/PEMUKIMAN_AR_50K_30_style.js"></script><script src="styles/PEMERINTAHAN_PT_50K_31_style.js"></script><script src="styles/DANAU_AR_50K_32_style.js"></script><script src="styles/SUNGAI_LN_50K_33_style.js"></script><script src="styles/JALAN_LN_50K_34_style.js"></script><script src="styles/PEMUKIMAN_AR_50K_35_style.js"></script><script src="styles/PEMERINTAHAN_PT_50K_36_style.js"></script><script src="styles/DANAU_AR_50K_37_style.js"></script><script src="styles/SUNGAI_LN_50K_38_style.js"></script><script src="styles/JALAN_LN_50K_39_style.js"></script><script src="styles/PEMUKIMAN_AR_50K_40_style.js"></script><script src="styles/PEMERINTAHAN_PT_50K_41_style.js"></script><script src="styles/SUNGAI_LN_50K_42_style.js"></script><script src="styles/JALAN_LN_50K_43_style.js"></script><script src="styles/PEMUKIMAN_AR_50K_44_style.js"></script><script src="styles/PEMERINTAHAN_PT_50K_45_style.js"></script><script src="styles/DANAU_AR_50K_46_style.js"></script><script src="styles/SUNGAI_LN_50K_47_style.js"></script><script src="styles/JALAN_LN_50K_48_style.js"></script><script src="styles/PEMUKIMAN_AR_50K_49_style.js"></script><script src="styles/PEMERINTAHAN_PT_50K_50_style.js"></script><script src="styles/DANAU_AR_50K_51_style.js"></script><script src="styles/SUNGAI_LN_50K_52_style.js"></script><script src="styles/JALAN_LN_50K_53_style.js"></script><script src="styles/PEMUKIMAN_AR_50K_54_style.js"></script><script src="styles/PEMERINTAHAN_PT_50K_55_style.js"></script><script src="styles/DANAU_AR_50K_56_style.js"></script><script src="styles/SUNGAI_LN_50K_57_style.js"></script><script src="styles/JALAN_LN_50K_58_style.js"></script><script src="styles/PEMUKIMAN_AR_50K_59_style.js"></script><script src="styles/PEMERINTAHAN_PT_50K_60_style.js"></script><script src="styles/DANAU_AR_50K_61_style.js"></script><script src="styles/SUNGAI_LN_50K_62_style.js"></script><script src="styles/JALAN_LN_50K_63_style.js"></script><script src="styles/PEMUKIMAN_AR_50K_64_style.js"></script><script src="styles/PEMERINTAHAN_PT_50K_65_style.js"></script><script src="styles/DANAU_AR_50K_66_style.js"></script><script src="styles/SUNGAI_LN_50K_67_style.js"></script><script src="styles/JALAN_LN_50K_68_style.js"></script><script src="styles/PEMUKIMAN_AR_50K_69_style.js"></script><script src="styles/PEMERINTAHAN_PT_50K_70_style.js"></script><script src="styles/DANAU_AR_50K_71_style.js"></script><script src="styles/SUNGAI_LN_50K_72_style.js"></script><script src="styles/JALAN_LN_50K_73_style.js"></script><script src="styles/Pemukiman_74_style.js"></script><script src="styles/PEMERINTAHAN_PT_50K_75_style.js"></script>
+        <script src="./layers/layers.js" type="text/javascript"></script> 
+        <script src="./resources/Autolinker.min.js"></script>
+        <script src="./resources/qgis2web.js"></script>
+    </body>
+</html>
